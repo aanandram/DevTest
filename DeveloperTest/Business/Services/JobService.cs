@@ -21,7 +21,8 @@ namespace DeveloperTest.Business
             {
                 JobId = x.JobId,
                 Engineer = x.Engineer,
-                When = x.When
+                When = x.When,
+                Customer = ToModel(x.Customer)
             }).ToArray();
         }
 
@@ -31,7 +32,8 @@ namespace DeveloperTest.Business
             {
                 JobId = x.JobId,
                 Engineer = x.Engineer,
-                When = x.When
+                When = x.When,
+                Customer = ToModel(x.Customer)
             }).SingleOrDefault();
         }
 
@@ -49,7 +51,19 @@ namespace DeveloperTest.Business
             {
                 JobId = addedJob.Entity.JobId,
                 Engineer = addedJob.Entity.Engineer,
-                When = addedJob.Entity.When
+                When = addedJob.Entity.When,
+                Customer = ToModel(addedJob.Entity.Customer)
+            };
+        }
+
+        // TO DO : may be this can be extension function
+        private CustomerModel ToModel(Customer dbModel)
+        {
+            return new CustomerModel
+            {
+                CustomerId = dbModel.CustomerId,
+                Name = dbModel.Name,
+                CustomerType = dbModel.CustomerType
             };
         }
     }

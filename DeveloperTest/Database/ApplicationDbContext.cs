@@ -8,6 +8,8 @@ namespace DeveloperTest.Database
     {
         public DbSet<Job> Jobs { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
