@@ -14,6 +14,6 @@ namespace DeveloperTest.Models
         public string Name { get; set; }
 
         [Required]
-        public CustomerType Type { get; set; }
+        public CustomerType CustomerType { get; set; }
     }
 }

@@ -1,0 +1,8 @@
+<ng-container *ngIf="customer$ | async as customer">
+    <p>Customer Id: {{ customer.customerId }}</p>
+    <p>Customer Name: {{ customer.name }}</p>
+    <p>Type: {{ customer.customerType }}</p>
+  </ng-container>
+  
+  <a [routerLink]="['/customers']">Back</a>
+  

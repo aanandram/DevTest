@@ -13,7 +13,7 @@ namespace DeveloperTest.Migrations
                 nullable: true);
 
             migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Customers",
                 columns: table => new
                 {
                     CustomerId = table.Column<int>(nullable: false)
@@ -42,7 +42,7 @@ namespace DeveloperTest.Migrations
                 name: "FK_Jobs_Customer_CustomerId",
                 table: "Jobs",
                 column: "CustomerId",
-                principalTable: "Customer",
+                principalTable: "Customers",
                 principalColumn: "CustomerId",
                 onDelete: ReferentialAction.Restrict);
         }
@@ -54,7 +54,7 @@ namespace DeveloperTest.Migrations
                 table: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Customers");
 
             migrationBuilder.DropIndex(
                 name: "IX_Jobs_CustomerId",

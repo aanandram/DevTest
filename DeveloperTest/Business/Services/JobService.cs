@@ -2,6 +2,7 @@
 using DeveloperTest.Business.Interfaces;
 using DeveloperTest.Database;
 using DeveloperTest.Database.Models;
+using DeveloperTest.Database.Models.Enum;
 using DeveloperTest.Models;
 
 namespace DeveloperTest.Business
@@ -42,7 +43,8 @@ namespace DeveloperTest.Business
             var addedJob = context.Jobs.Add(new Job
             {
                 Engineer = model.Engineer,
-                When = model.When
+                When = model.When,
+                CustomerId = model.CustomerId
             });
 
             context.SaveChanges();
@@ -56,9 +58,11 @@ namespace DeveloperTest.Business
             };
         }
 
-        // TO DO : may be this can be extension function
-        private CustomerModel ToModel(Customer dbModel)
+        // TO DO : this can be extension function
+        private static CustomerModel ToModel(Customer dbModel)
         {
+            if(dbModel == null) { return null; } 
+
             return new CustomerModel
             {
                 CustomerId = dbModel.CustomerId,

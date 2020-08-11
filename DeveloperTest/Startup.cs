@@ -10,6 +10,7 @@ using DeveloperTest.Database;
 using DeveloperTest.Business.Services;
 using AutoMapper;
 using DeveloperTest.Models.Mappings;
+using System.Text.Json.Serialization;
 
 namespace DeveloperTest
 {
@@ -26,6 +27,10 @@ namespace DeveloperTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services
+                .AddControllers()
+                .AddJsonOptions(opts => opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
